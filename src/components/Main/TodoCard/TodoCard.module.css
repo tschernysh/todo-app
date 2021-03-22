@@ -1,0 +1,60 @@
+.todo__card{
+    width: 24%;
+    background-color: #fff;
+    position: relative;
+    margin-bottom: 1%;
+}
+.delete__task{
+    color: red;
+    position: absolute;
+    right: 0px;
+    top: -3px;
+    font-size: 25px;
+    transition: all 0.5s;
+    transform: rotate(45deg);
+}
+.delete__task:hover{
+    color: black;
+    cursor: pointer;
+}
+.edit__task{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    font-size: 15   px;
+    transition: all 0.5s;
+}
+.edit__task:hover{
+    color: rgb(70, 70, 70);
+    cursor: pointer;
+}
+.card__header{
+    font-size: 20px;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 auto;
+}
+.card__text{
+    font-size: 20px;
+    height: 110px;
+    padding-left: 5px;
+    overflow: auto;
+}
+.card__done{
+    display: flex;
+}
+.card__done hr{
+    width: 40%;
+    border: none;
+    height: 2px;
+    background-color: #1B1464;
+}
+.done hr {
+    background-color: green !important;
+}
+.done{
+    box-shadow: 0 0 10px green !important;
+}
