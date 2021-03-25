@@ -1,0 +1,21 @@
+.filter__block{
+    width: 40%;
+}
+.header__filters_header{
+    color: #fff;
+    text-align: center;
+}
+.header__filters{
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+}
+.filter{
+    display: flex; 
+    align-items: center;
+}
+.filter input{
+    margin-left: 5px;
+    font-size: 15px;
+    outline: none;
+}

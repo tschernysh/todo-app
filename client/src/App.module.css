@@ -1,0 +1,37 @@
+.app{
+  width: 60%;
+  margin: 0 auto;
+}
+body {
+  animation: backgroundChange 120s infinite;
+}
+
+@keyframes backgroundChange {
+  0%{
+    background-color: #C4E538;
+  }
+  20%{
+    background-color: #006266;
+  }
+  40%{
+    background-color: #5758BB;
+  }
+  60%{
+    background-color: #EE5A24;
+  }
+  80%{
+    background-color: #12CBC4;
+  }
+  100%{
+    background-color: #C4E538;
+  }
+}
+.main__block{
+  background: linear-gradient(#5758BB -110%,#1B1464 );
+  height: 80vh;
+  padding: 20px;
+}
+.main__container{
+  width: 90%;
+  margin: 0 auto ;
+}
