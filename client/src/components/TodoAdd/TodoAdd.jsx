@@ -3,10 +3,10 @@ import { reduxForm, Field } from 'redux-form'
 
 const TodoAddForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form className={s.add__block}  onSubmit={props.handleSubmit}>
             <h2>Create task</h2>
-            <Field placeholder='Type task name' name='name' component='input' className={s.editor__header} type="text" />
-            <Field placeholder='Type task description' name='description' component='textarea' className={s.editor__text} cols="30" rows="10" />
+            <Field placeholder='Type task name' name='name' component='input' className={s.add__header} type="text" />
+            <Field placeholder='Type task description' name='description' component='textarea' className={s.add__text} cols="30" rows="10" />
             <button>ADD TASK</button>
 
         </form>
@@ -26,7 +26,7 @@ const TodoAdd = (props) => {
     }
 
     return (
-        <div className={s.editor__block}>
+        <div >
             <TodoAddReduxForm onSubmit={createTodo} />
         </div>
     )

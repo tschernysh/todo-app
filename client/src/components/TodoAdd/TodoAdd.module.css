@@ -1,24 +1,24 @@
-.editor__block{
+.add__block{
     display: flex;
     flex-direction: column;
 }
-.editor__block h2{
+.add__block h2{
     color: #fff;
     font-size: 50px;
 }
-.editor__block input{
+.add__block input{
     font-size: 30px;
     padding: 5px 10px;
     outline: none;
     margin-bottom: 20px;
 }
-.editor__block textarea{
+.add__block textarea{
     font-size: 30px;
     padding: 5px 10px;
     outline: none;
     resize: none;
 }
-.editor__block button{
+.add__block button{
     background-color: #F79F1F;
     border: none;
     width: 15%;
@@ -29,7 +29,7 @@
     margin: 20px 0 0 85%;
     transition: all 0.5s;
 }
-.editor__block button:hover{
+.add__block button:hover{
     cursor: pointer;
     box-shadow: 0 0 10px #F79F1F;
 }

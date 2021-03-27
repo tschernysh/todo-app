@@ -1,0 +1,33 @@
+.login__block{
+    width: 60%;
+    margin: 150px auto 0;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+}
+.login__form input{
+    font-size: 20px;
+    margin-top: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
+}
+.login__form input:focus{
+    border: 1px solid #F79F1F;
+    box-shadow: 0 0 5px #F79F1F;
+}
+.login__form button{
+    font-size: 20px;
+    border: none;
+    background-color: #F79F1F;
+    color: #fff;
+    margin: 20px 0px 40px;
+}
+.login__form button{
+    padding: 5px 20px;
+    transition: all 0.5s;
+}
+.login__form button:hover{
+    box-shadow: 0 0 5px #F79F1F;
+}

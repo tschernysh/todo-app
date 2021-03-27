@@ -1,0 +1,11 @@
+.error span{
+    color: red;
+    font-size: 12px;
+}
+.error input{
+    border: 1px solid red !important;
+    box-shadow: 0 0 5px red;
+}
+p{
+    font-size: 21px;
+}
