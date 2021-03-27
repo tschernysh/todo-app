@@ -1,28 +1,33 @@
 import s from './TodoAdd.module.css'
+import { reduxForm, Field } from 'redux-form'
+
+const TodoAddForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <h2>Create task</h2>
+            <Field placeholder='Type task name' name='name' component='input' className={s.editor__header} type="text" />
+            <Field placeholder='Type task description' name='description' component='textarea' className={s.editor__text} cols="30" rows="10" />
+            <button>ADD TASK</button>
+
+        </form>
+    )
+}
+
+const TodoAddReduxForm = reduxForm({form: 'todoAdd'})(TodoAddForm)
+
 
 const TodoAdd = (props) => {
 
 
-    let todoNameUpdate = (e) => {
-        let name = e.target.value
-        props.nameUpdate(name)
+    let createTodo = (values) => {
+        console.log(values);
+        
+        props.createTodo(values.name, values.description)
     }
 
-    let todoDescriptionUpdate = (e) => {
-        let description = e.target.value
-        props.descriptionUpdate(description)
-    }
-
-    let createTodo = (name,description) => {
-        props.createTodo(name,description)
-    }
-
-    return(
+    return (
         <div className={s.editor__block}>
-            <h2>Create task</h2>
-            <input placeholder='Type task name' onChange={ (e) => todoNameUpdate(e) } value={props.todoName} className={s.editor__header} type="text"/>
-            <textarea placeholder='Type task description' onChange={ (e) => todoDescriptionUpdate(e) } value={props.todoDescription} className={s.editor__text} cols="30" rows="10"></textarea>
-            <button onClick={ () =>  createTodo(props.todoName, props.todoDescription) }>ADD TASK</button>
+            <TodoAddReduxForm onSubmit={createTodo} />
         </div>
     )
 }

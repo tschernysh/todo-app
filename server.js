@@ -39,6 +39,8 @@ app.put("/createTodo", urlencodedParser , (req, res) => {
         doneStatus: false,
         id: uuidv4()
     };
+    console.log(req.body);
+    
     todos.push(newTodo)
     res.status(201).json(todos)
 });

@@ -4,6 +4,10 @@
     position: relative;
     margin-bottom: 1%;
     transition: all 0.5s;
+    box-shadow: 0 0 10px black;
+}
+.todo__card:hover{
+    box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 .delete__task{
     color: red;
@@ -67,7 +71,7 @@
     background-color: rgb(255, 255, 255) ;
 }
 .done{
-    box-shadow: 0 0 10px green ;
+    box-shadow: 0 0 10px green !important;
     transition: all 0.5s;
     background-color: green;
     color: #fff;

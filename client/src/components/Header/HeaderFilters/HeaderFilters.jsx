@@ -3,8 +3,6 @@ import s from './HeaderFilters.module.css'
 let HeaderFilters = (props) => {
 
     let setNameFilter = (name) => {
-        console.log(name);
-        
         props.setNameFilter(name)
     }
 

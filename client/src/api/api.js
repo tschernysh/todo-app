@@ -14,7 +14,7 @@ export const todoAPI = {
     },
     createTodo(name, description){
         return(
-            instance.put('createTodo', {name, description}).then(res => {
+            instance.put('createTodo', {name, description }).then(res => {
                 return res.data
             })
         )

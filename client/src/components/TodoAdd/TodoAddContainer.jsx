@@ -5,17 +5,15 @@ import { connect } from "react-redux"
 const TodoAddContainer = (props) => {
     return(
         <>
-            <TodoAdd editableTodo={props.editableTodo} getEditTodo={props.getEditTodo} todoName={props.todoName} todoDescription={props.todoDescription} createTodo={props.createTodo} nameUpdate={props.nameUpdate} descriptionUpdate={props.descriptionUpdate} />
+            <TodoAdd createTodo={props.createTodo} />
         </>
     )
 }
 
 let mapStateToProps = (state) => {
     return{
-        todos: state.taskManager.todos,
-        todoName: state.taskManager.todoName,
-        todoDescription: state.taskManager.todoDescription
+        todos: state.taskManager.todos
     }
 }
 
-export default connect(mapStateToProps, { createTodo, nameUpdate, descriptionUpdate} )(TodoAddContainer)
+export default connect(mapStateToProps, { createTodo} )(TodoAddContainer)

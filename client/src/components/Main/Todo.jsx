@@ -4,7 +4,6 @@ import TodoCard from './TodoCard/TodoCard'
 
 const Todo = (props) => {
 
-    console.log(props.filters.done);
 
     
     
@@ -19,18 +18,27 @@ const Todo = (props) => {
                                                 setEditTodo={props.setEditTodo} />)
 
 
-    console.log(todos);
     
     return(
-        <div className={s.todo__cards}>
+        <>
             {
                 
                 props.filters.name !== '' || props.filters.done  
-                ? todos.filter(t => t.props.name.match(props.filters.name) !== null && t.props.doneStatus == props.filters.done )
+                ? todos.filter(t => {
+                    if(props.filters.name == ''){
+                        return t.props.doneStatus == props.filters.done 
+                    }
+                    else if(!props.filters.done){
+                        return t.props.name.match(props.filters.name) !== null
+                    }   
+                    else{
+                        return t.props.doneStatus == props.filters.done && t.props.name.match(props.filters.name) !== null
+                    }
+                })
                 : todos
                 
             }
-        </div>
+        </>
     )
 }
 

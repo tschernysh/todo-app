@@ -9,11 +9,8 @@ import store from './redux/redux';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Provider store={ store }>
-      <React.StrictMode>
-        <Redirect to='/todo' />
-        <App />
-      </React.StrictMode>
+    <Provider store={store}>
+      <App />
     </Provider>
   </BrowserRouter>,
   document.getElementById('root')

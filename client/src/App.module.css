@@ -30,8 +30,11 @@ body {
   background: linear-gradient(#5758BB -110%,#1B1464 );
   height: 80vh;
   padding: 20px;
+  overflow: auto;
+
 }
 .main__container{
   width: 90%;
   margin: 0 auto ;
+  
 }

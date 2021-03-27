@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderFilters from "./HeaderFilters"
 import {connect} from 'react-redux'
-import { toggleDoneFilter, setNameFilter } from '../../../redux/taskReducer'
+import { toggleDoneFilter, setNameFilter } from '../../../redux/filtersReducer'
 
 
 const HeaderFiltersContainer = (props) => {
@@ -14,7 +14,7 @@ const HeaderFiltersContainer = (props) => {
 
 let mapStateToProps = (state) => {
     return{
-        filters: state.taskManager.filters
+        filters: state.filtersManager.filters
     }
 }
 

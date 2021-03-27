@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import s from './Todo.module.css'
 import Todo from './Todo'
 import { connect } from 'react-redux'
@@ -6,9 +6,14 @@ import { getTodos, changeDoneStatus, deleteTodo, setEditTodo } from '../../redux
 
 const TodoContainer = (props) => {
 
+
+
     useEffect( () => {
         props.getTodos()
-    }, [props.todos] )
+        console.log(1);
+        
+    }, [] )
+
 
 
     return(
@@ -25,7 +30,7 @@ const TodoContainer = (props) => {
 let mapStateToProps = (state) => {
     return{
         todos: state.taskManager.todos,
-        filters: state.taskManager.filters
+        filters: state.filtersManager.filters
     }
 }
 
