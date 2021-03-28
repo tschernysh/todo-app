@@ -8,27 +8,51 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-const todos = [
+const profiles = [
     {
-        name: 'how to',
-        description: 'to add new task click on "+ADD TASK". You can edit your tasks by clicking on a pen on the task card. To delete your task click on red cross. You can "done" your task by clickin on white box in center of the card',
-        doneStatus: false,
-        id: uuidv4()
-    },
-    {
-        name: 'how to',
-        description: 'to add new task click on "+ADD TASK". You can edit your tasks by clicking on a pen on the task card. To delete your task click on red cross. You can "done" your task by clickin on white box in center of the card',
-        doneStatus: false,
-        id: uuidv4()
-    },
-    
+        profile:{
+            login: 'tschernysh',
+            password: 'bestWebEver101',
+            profilePhoto: '',
+            id: 0,
+        },
+        todos: [{
+            name: 'how to',
+            description: 'to add new task click on "+ADD TASK". You can edit your tasks by clicking on a pen on the task card. To delete your task click on red cross. You can "done" your task by clickin on white box in center of the card',
+            doneStatus: false,
+            id: uuidv4()
+        },
+        {
+            name: 'how to',
+            description: 'to add new task click on "+ADD TASK". You can edit your tasks by clicking on a pen on the task card. To delete your task click on red cross. You can "done" your task by clickin on white box in center of the card',
+            doneStatus: false,
+            id: uuidv4()
+        }
+        ]
+    }
+
+
 ]
 
 
 
-app.get("/todos", (req, res) => {
-    res.status(200).json(todos)
+app.get("/todos/:profileId", (req, res) => {
+    res.status(200).json(profiles[req.params.profileId].todos)
 
+})
+
+app.post("/login", (req, res) => {
+    for (let i = 0; i < profiles.length; i++) {
+        if(profiles[i].profile.login === req.body.login){
+            if(profiles[i].profile.password === req.body.password){
+                res.status(200).json(profiles[i].profile)
+                console.log(profiles[i].profile);
+                
+            }
+        }else{
+            return req.resultCode(1)
+        }
+    }
 })
 
 

@@ -1,6 +1,8 @@
 import TodoAdd from "./TodoAdd"
 import { createTodo, nameUpdate, descriptionUpdate} from "../../redux/taskReducer"
 import { connect } from "react-redux"
+import { compose } from "redux"
+import { withLoginRedirect } from "../../hoc/WithLoginRedirect"
 
 const TodoAddContainer = (props) => {
     return(
@@ -16,4 +18,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { createTodo} )(TodoAddContainer)
+export default compose(connect(mapStateToProps, { createTodo} ),
+                        withLoginRedirect)(TodoAddContainer)

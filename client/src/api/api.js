@@ -5,9 +5,9 @@ const instance = axios.create({
 })
 
 export const todoAPI = {
-    getTodos(){
+    getTodos(id){
         return(
-            instance.get('todos').then(res => {
+            instance.get(`todos/${id}`).then(res => {
                 return res.data
             })
         )
@@ -51,4 +51,12 @@ export const todoAPI = {
         )
     }
 }
-
+export const profileAPI = {
+    loginUser(login, password){
+        return(
+            instance.post(`login`, {login,password}).then(res => {
+                return res.data
+            })
+        )
+    }
+}

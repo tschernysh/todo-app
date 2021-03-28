@@ -33,9 +33,9 @@ export const createTodo = (name, description) => {
 export const setTodos = (todos) => ({
     type: SET_TODOS, todos
 })
-export const getTodos = (id) => {
+export const getTodos = (userId) => {
     return (dispatch) => {
-        todoAPI.getTodos(id).then(data => {
+        todoAPI.getTodos(userId).then(data => {
             dispatch(setTodos(data))
         })
     }
