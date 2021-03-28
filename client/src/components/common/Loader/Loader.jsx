@@ -1,6 +1,6 @@
 const Loader = (props) => {
     return(
-        <h1>LOADER</h1>
+        <h1>LOADING...</h1>
     )
 }
 

@@ -5,47 +5,39 @@ const instance = axios.create({
 })
 
 export const todoAPI = {
-    getTodos(id){
+    getTodos(userId){
         return(
-            instance.get(`todos/${id}`).then(res => {
+            instance.get(`todos/${userId}`).then(res => {
                 return res.data
             })
         )
     },
-    createTodo(name, description){
+    createTodo(profileId ,name, description){
         return(
-            instance.put('createTodo', {name, description }).then(res => {
+            instance.put(`createTodo/${profileId}`, { name, description }).then(res => {
                 return res.data
             })
         )
     },
-    changeDoneStatus(id){
+    changeDoneStatus(profileId, todoId){
         return(
-            instance.post('done', {id}).then(res => {
+            instance.post(`done/${profileId}`, {todoId}).then(res => {
                 return res.data
             })
         )
     },
-    deleteTodo(id){
+    deleteTodo(profileId, todoId){
         return(
-            instance.delete(`deleteTodo/${id}`).then(res => {
+            instance.delete(`deleteTodo/${profileId}/${todoId}`).then(res => {
                 return res.data
             })
         )
     },
-    getEditTodo(id){
-        return(
-            instance.get(`getEditTodo/${id}`).then(res => {
-                
-                return res.data
-            })
-        )
-    },
-    setEditTodo(id, todo){
-        console.log(id, todo);
+    setEditTodo(profileId,todoId, todo){
+        console.log(todo);
         
         return(
-            instance.post(`setEditTodo/${id}`, {todo}).then(res => {
+            instance.post(`setEditTodo/${profileId}/${todoId}`, {todo}).then(res => {
                 return res.data
             })
         )

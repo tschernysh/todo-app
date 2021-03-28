@@ -1,30 +1,34 @@
 import s from './HeaderFilters.module.css'
+import { Field, reduxForm } from 'redux-form'
+import { Input } from '../../common/FormControls/FormControls'
 
-let HeaderFilters = (props) => {
+const HeaderFiltersForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={s.header__filters}>
 
-    let setNameFilter = (name) => {
-        props.setNameFilter(name)
-    }
+            <div className={s.filter}>
+                <div>DONE</div>
+                <Field  name='doneFilter' component={Input} type='checkbox' />
+            </div>
+            <div className={s.filter}>
+                <div>TODO NAME</div>
+                <Field  name='nameFilter' component={Input} />
+            </div>
+        </form>
 
-    let toggleDoneFilter = () => {
-        props.toggleDoneFilter()
-    }
+    )
+}
 
-    return(
+const HeaderFiltersReduxForm = reduxForm({ form: 'filters' })(HeaderFiltersForm)
+
+const HeaderFilters = (props) => {
+
+    return (
         <section className={s.filter__block}>
             <div className={s.header__filters_header}>
                 filter by:
             </div>
-            <div className={s.header__filters}>
-                <div className={s.filter}>
-                    <div className="">DONE</div>
-                    <input onChange={ toggleDoneFilter } defaultChecked={props.toggleDoneFilter} type="checkbox"/>
-                </div>
-                <div className={s.filter}>
-                    <div className="">TODO NAME</div>
-                    <input onChange={ (e) => setNameFilter(e.target.value) } value={props.filters.name} type="text"/>
-                </div>
-            </div>           
+            <HeaderFiltersReduxForm />
         </section>
 
     )

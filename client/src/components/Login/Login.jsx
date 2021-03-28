@@ -9,7 +9,7 @@ const LoginForm = (props) => {
         <form className={s.login__form} onSubmit={props.handleSubmit}>
             <Field placeholder='login' name='login' validate={[required]} component={Input} type='text' />
             <Field placeholder='password' name='password' validate={[required]} component={Input} type='password' />
-            <button>Log in</button>
+            <button disabled={props.isFetching} >Log in</button>
         </form>
     )
 }
@@ -30,7 +30,7 @@ const Login = (props) => {
     return(
         <div className={s.login__block}>
             <h2>LOGIN</h2>
-            <LoginReduxForm onSubmit={onLoginSubmit} />
+            <LoginReduxForm isFetching={props.isFetching} onSubmit={onLoginSubmit} />
         </div>
     )
 }

@@ -1,14 +1,14 @@
 import React from 'react'
 import s from './Header.module.css'
-import HeaderFiltersContainer from './HeaderFilters/HeaderFiltersContainer'
 import HeaderNav from './HeaderNav/HeaderNav'
 import HeaderProfileContainer from './HeaderProfile/HeaderProfileContainer'
+import HeaderFilters from './HeaderFilters/HeaderFilters'
 
 const Header = (props) => {
     return(
         <header>
             <HeaderNav />
-            <HeaderFiltersContainer />
+            <HeaderFilters />
             <HeaderProfileContainer />
         </header>
     )

@@ -12,26 +12,39 @@ const profiles = [
     {
         profile:{
             login: 'tschernysh',
-            password: 'bestWebEver101',
+            password: 'reacttop',
             profilePhoto: '',
-            id: 0,
+            profileId: 0,
         },
         todos: [{
             name: 'how to',
             description: 'to add new task click on "+ADD TASK". You can edit your tasks by clicking on a pen on the task card. To delete your task click on red cross. You can "done" your task by clickin on white box in center of the card',
             doneStatus: false,
-            id: uuidv4()
+            todoId: uuidv4()
         },
         {
             name: 'how to',
             description: 'to add new task click on "+ADD TASK". You can edit your tasks by clicking on a pen on the task card. To delete your task click on red cross. You can "done" your task by clickin on white box in center of the card',
             doneStatus: false,
-            id: uuidv4()
+            todoId: uuidv4()
+        }
+        ]
+    },
+    {
+        profile:{
+            login: 'test',
+            password: 'test123',
+            profilePhoto: '',
+            profileId: 1,
+        },
+        todos: [{
+            name: 'say10',
+            description: '',
+            doneStatus: false,
+            todoId: uuidv4()
         }
         ]
     }
-
-
 ]
 
 
@@ -43,66 +56,62 @@ app.get("/todos/:profileId", (req, res) => {
 
 app.post("/login", (req, res) => {
     for (let i = 0; i < profiles.length; i++) {
+        console.log(profiles.length);
+        
         if(profiles[i].profile.login === req.body.login){
             if(profiles[i].profile.password === req.body.password){
                 res.status(200).json(profiles[i].profile)
-                console.log(profiles[i].profile);
-                
             }
-        }else{
-            return req.resultCode(1)
         }
     }
 })
 
 
-app.put("/createTodo", urlencodedParser , (req, res) => {
+app.put("/createTodo/:profileId", urlencodedParser , (req, res) => {
     const newTodo = {
         name: req.body.name,
         description: req.body.description,
         doneStatus: false,
-        id: uuidv4()
+        todoId: uuidv4()
     };
     console.log(req.body);
     
-    todos.push(newTodo)
-    res.status(201).json(todos)
+    profiles[req.params.profileId].todos.push(newTodo)
+    res.status(201).json(profiles[req.params.profileId].todos)
 });
 
-app.post('/done', (req, res) => {
-    for(let i = 0; i < todos.length; i++ ){
-        if(todos[i].id == req.body.id){
-            todos[i].doneStatus = !todos[i].doneStatus
+app.post(`/done/:profileId`, (req, res) => {
+    for(let i = 0; i < profiles[req.params.profileId].todos.length; i++ ){
+        if(profiles[req.params.profileId].todos[i].todoId == req.body.todoId){
+            profiles[req.params.profileId].todos[i].doneStatus = !profiles[req.params.profileId].todos[i].doneStatus
         }
     }
     
-    res.status(202).json(todos)
+    res.status(202).json(profiles[req.params.profileId].todos)
 })
 
-app.delete('/deleteTodo/:todoId', (req, res) => {
-    for(let i = 0; i < todos.length; i++ ){
-        if(todos[i].id == req.params.todoId){
-            todos.splice(i,1)
+app.delete('/deleteTodo/:profileId/:todoId', (req, res) => {
+    for(let i = 0; i < profiles[req.params.profileId].todos.length; i++ ){
+        if(profiles[req.params.profileId].todos[i].todoId == req.params.todoId){
+            profiles[req.params.profileId].todos.splice(i,1)
         }
     }
     
-    res.status(202).json(todos)
+    res.status(202).json(profiles[req.params.profileId].todos)
 })
 
-app.post('/setEditTodo/:todoId', (req, res) => {
+app.post('/setEditTodo/:profileId/:todoId', (req, res) => {
     console.log(req.body);
     
 
-    for(let i = 0; i < todos.length; i++ ){
-
-        if(todos[i].id == req.params.todoId){
-            todos[i].name = req.body.todo.todoName
-            todos[i].description = req.body.todo.todoDescription
-        }
-        console.log(todos);
-        
-        res.status(200).json(todos)
+    for(let i = 0; i < profiles[req.params.profileId].todos.length; i++ ){
+        if(profiles[req.params.profileId].todos[i].todoId == req.params.todoId){
+            profiles[req.params.profileId].todos[i].name = req.body.todo.todoName
+            profiles[req.params.profileId].todos[i].description = req.body.todo.todoDescription
+        }        
     }
+    res.status(200).json(profiles[req.params.profileId].todos)
+
 })
 
 const PORT = 5001;

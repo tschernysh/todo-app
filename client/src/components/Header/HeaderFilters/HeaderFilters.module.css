@@ -19,3 +19,7 @@
     font-size: 15px;
     outline: none;
 }
+.filter div:nth-child(2){
+    display: flex;
+    align-items: center;
+}

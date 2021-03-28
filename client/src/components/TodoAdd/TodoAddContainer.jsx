@@ -1,5 +1,5 @@
 import TodoAdd from "./TodoAdd"
-import { createTodo, nameUpdate, descriptionUpdate} from "../../redux/taskReducer"
+import { createTodo} from "../../redux/taskReducer"
 import { connect } from "react-redux"
 import { compose } from "redux"
 import { withLoginRedirect } from "../../hoc/WithLoginRedirect"
@@ -7,14 +7,16 @@ import { withLoginRedirect } from "../../hoc/WithLoginRedirect"
 const TodoAddContainer = (props) => {
     return(
         <>
-            <TodoAdd createTodo={props.createTodo} />
+            <TodoAdd createTodo={props.createTodo} profileId={props.profileId} isFetching={props.isFetching} />
         </>
     )
 }
 
 let mapStateToProps = (state) => {
     return{
-        todos: state.taskManager.todos
+        todos: state.taskManager.todos,
+        profileId: state.profileManager.profile.profileId,
+        isFetching: state.taskManager.isFetching
     }
 }
 

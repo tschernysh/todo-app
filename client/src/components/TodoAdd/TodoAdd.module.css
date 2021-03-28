@@ -11,12 +11,14 @@
     padding: 5px 10px;
     outline: none;
     margin-bottom: 20px;
+    width: 100%;
 }
 .add__block textarea{
     font-size: 30px;
     padding: 5px 10px;
     outline: none;
     resize: none;
+    width: 100%;
 }
 .add__block button{
     background-color: #F79F1F;
@@ -32,4 +34,8 @@
 .add__block button:hover{
     cursor: pointer;
     box-shadow: 0 0 10px #F79F1F;
+}
+.add__block button:disabled{
+    background-color: gray;
+    box-shadow: 0 0 0px #F79F1F
 }

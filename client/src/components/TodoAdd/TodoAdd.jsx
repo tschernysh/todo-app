@@ -1,13 +1,17 @@
 import s from './TodoAdd.module.css'
 import { reduxForm, Field } from 'redux-form'
+import {Input, Textarea} from "../common/FormControls/FormControls"
+import { required } from '../../utils/validators/validator'
 
 const TodoAddForm = (props) => {
+    console.log(props.isFetching);
+    
     return (
         <form className={s.add__block}  onSubmit={props.handleSubmit}>
             <h2>Create task</h2>
-            <Field placeholder='Type task name' name='name' component='input' className={s.add__header} type="text" />
-            <Field placeholder='Type task description' name='description' component='textarea' className={s.add__text} cols="30" rows="10" />
-            <button>ADD TASK</button>
+            <Field validate={[required]} placeholder='Type task name' name='name' component={Input}  type="text" />
+            <Field placeholder='Type task description' name='description' component={Textarea}  cols="30" rows="10" />
+            <button disabled={props.isFetching} >ADD TASK</button>
 
         </form>
     )
@@ -20,14 +24,14 @@ const TodoAdd = (props) => {
 
 
     let createTodo = (values) => {
-        console.log(values);
+        console.log(props.profileId);
         
-        props.createTodo(values.name, values.description)
+        props.createTodo(props.profileId ,values.name, values.description)
     }
 
     return (
         <div >
-            <TodoAddReduxForm onSubmit={createTodo} />
+            <TodoAddReduxForm isFetching={props.isFetching}  onSubmit={createTodo} />
         </div>
     )
 }
