@@ -11,9 +11,10 @@ app.use(bodyParser.json())
 const profiles = [
     {
         profile:{
-            login: 'tschernysh',
+            login: 'tschernysh@gmail.com',
+            name: 'tschernysh',
             password: 'reacttop',
-            profilePhoto: '',
+            profilePhoto: 'https://www.vmcdn.ca/f/files/glaciermedia/import/lmp-all/1606492-albino-crow-wildlife-rescue-association-raw.jpg;w=1200;h=1200;mode=crop',
             profileId: 0,
         },
         todos: [{
@@ -56,11 +57,9 @@ app.get("/todos/:profileId", (req, res) => {
 
 app.post("/login", (req, res) => {
     for (let i = 0; i < profiles.length; i++) {
-        console.log(profiles.length);
-        
         if(profiles[i].profile.login === req.body.login){
             if(profiles[i].profile.password === req.body.password){
-                res.status(200).json(profiles[i].profile)
+                return res.status(200).json(profiles[i].profile)
             }
         }
     }
@@ -111,6 +110,13 @@ app.post('/setEditTodo/:profileId/:todoId', (req, res) => {
         }        
     }
     res.status(200).json(profiles[req.params.profileId].todos)
+
+})
+
+app.post('/setNewProfileName/:profileId', (req, res) => {
+    profiles[req.params.profileId].profile.name = req.body.newName
+
+    res.status(200).json(profiles[req.params.profileId].profile)
 
 })
 

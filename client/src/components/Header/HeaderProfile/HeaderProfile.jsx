@@ -6,7 +6,7 @@ const HeaderProfile = (props) => {
     return(
         <NavLink to='/settings' activeClassName={s.active__button} className={s.header__profile}>
             {props.isLogged 
-            ? <><img src={props.profilePhoto} alt=""/><div className={s.header__profile_name}>{props.profileLogin}</div></>
+            ? <><img src={props.profilePhoto} alt=""/><div className={s.header__profile_name}>{props.profileName}</div></>
             : <div className={s.header__profile_name}>Login</div>}
             
         </NavLink>

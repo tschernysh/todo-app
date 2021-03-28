@@ -10,8 +10,14 @@
     font-size: 30px;
     padding: 5px 10px;
     outline: none;
-    margin-bottom: 20px;
     width: 100%;
+    border: 1px solid transparent;
+}
+.add__block div p{
+    font-size: 21px !important;
+}
+.add__block div span{
+    margin: 0;
 }
 .add__block textarea{
     font-size: 30px;

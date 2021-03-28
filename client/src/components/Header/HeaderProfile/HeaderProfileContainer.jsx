@@ -4,15 +4,15 @@ import { connect } from 'react-redux'
 
 const HeaderProfileContainer = (props) => {
     return(
-        <HeaderProfile isLogged={props.isLogged} profilePhoto={props.profilePhoto} profileLogin={props.profileLogin} />
+        <HeaderProfile isLogged={props.isLogged} profilePhoto={props.profilePhoto} profileName={props.profileName} />
     )
 }
 
 let mapStateToProps = (state) => {
     return{
         isLogged: state.profileManager.isLogged,
-        profilePhoto: state.profileManager.profile.photo,
-        profileLogin: state.profileManager.profile.login
+        profilePhoto: state.profileManager.profile.profilePhoto,
+        profileName: state.profileManager.profile.name
     }
 }
 

@@ -50,5 +50,11 @@ export const profileAPI = {
                 return res.data
             })
         )
+    },
+    setNewProfileName(profileId, newName){
+        return(
+            instance.post(`setNewProfileName/${profileId}`, {newName})
+                .then(res => {return res.data})
+        )
     }
 }

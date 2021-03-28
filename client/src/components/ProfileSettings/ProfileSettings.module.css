@@ -1,0 +1,83 @@
+.settings__block{
+    width: 80%;
+    margin: 50px auto;
+}
+.settings__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.settings__header button{
+    height: 30px;
+    background-color: #F79F1F;
+    color: #fff;
+    border: none;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+.settings__header button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px #F79F1F ;
+}
+.settings__block h2{
+    color: #fff;
+}
+.profile__photo img{
+    width: 200px;
+    border-radius: 50%;
+}
+.profile__info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size: 30px;
+    color: #fff;
+    margin: 50px 0;
+}
+.profile__items{
+    width: 50%;
+}
+.profile__item{
+    min-width: 100px;
+    margin: 5px 0;
+}
+.profile__item input{
+    font-size: 28px;
+    outline: none;
+    border: 1px solid #F79F1F;
+    margin-right: 10px;
+    transition: all 0.5s;
+    width: 70%;
+}
+.password__item input{
+    outline: none;
+    border: 1px solid #F79F1F;
+    margin-right: 10px;
+    transition: all 0.5s;
+    padding: 5px 5px;
+}
+.password__item input:focus{
+    box-shadow: 0 0 5px #F79F1F ;
+}
+.password__item button{
+    background-color: #F79F1F;
+    color: #fff;
+    border: none;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+.password__item button:hover{
+    box-shadow: 0 0 5px #F79F1F ;
+    cursor: pointer;
+}
+.password__item div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.password__item div p{
+    font-size: 8px !important;
+}
+.profile__password{
+    margin-top: 20px;
+}
