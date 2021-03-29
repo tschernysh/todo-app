@@ -8,10 +8,10 @@ const HeaderNav = (props) => {
         <div className={s.header__nav}>
             <NavLink activeClassName={s.active__button}  to='/create' className={`${s.header__button} ${s.add__button}`}>
                 <span>+</span>
-                <div>ADD TASK</div>
+                <div>ADD TODO</div>
             </NavLink>
             <NavLink activeClassName={s.active__button}  to='/todo' className={s.header__button}>
-                <div>MAIN</div>
+                <div>TODO</div>
             </NavLink>
         </div>
         

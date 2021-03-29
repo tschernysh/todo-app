@@ -35,7 +35,7 @@ const Todo = (props) => {
                         return t.props.doneStatus == props.filters.values.doneFilter && t.props.name.match(props.filters.values.nameFilter) !== null
                     }
                 })
-                : todos
+                : todos.length == 0 ? 'it seems you dont have todo\'s :(' : todos
                 
             }
         </>

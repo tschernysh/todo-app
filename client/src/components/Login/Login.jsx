@@ -23,7 +23,7 @@ const Login = (props) => {
     }
 
     if(props.isLogged){
-        return <Redirect to={'/todo'} />
+        return <Redirect to={'/'} />
     }
     
 
