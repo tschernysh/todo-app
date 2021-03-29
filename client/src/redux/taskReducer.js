@@ -3,26 +3,31 @@ import { reset } from "redux-form"
 
 const SET_TODOS = 'SET_TODOS'
 const TOGGLE_FETCHING = 'TOGGLE_FETCHING'
+const LOGOUT = 'LOGOUT'
 
 
 let initial = {
     todos: [],
-    filters: {done: false , name: ''},
     isFetching: false
 }
 
 const taskReducer = (state = initial, action) => {
     switch (action.type) {
         case SET_TODOS:
-        debugger
+            debugger
             return {
                 ...state,
                 todos: action.todos
             }
         case TOGGLE_FETCHING:
-            return{
+            return {
                 ...state,
                 isFetching: action.fetching
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                todos: []
             }
         default:
             return state
@@ -36,7 +41,7 @@ export const toggleFetching = (fetching) => ({
 export const createTodo = (profileId, name, description) => {
     return (dispatch) => {
         dispatch(toggleFetching(true))
-        todoAPI.createTodo(profileId, name,description)
+        todoAPI.createTodo(profileId, name, description)
             .then(data => {
                 dispatch(setTodos(data))
                 dispatch(toggleFetching(false))
@@ -78,15 +83,18 @@ export const deleteTodo = (profileId, todoId) => {
 
 export const setEditTodo = (profileId, todoId, todo) => {
     console.log(todo);
-    
+
     return (dispatch) => {
         dispatch(toggleFetching(true))
-        todoAPI.setEditTodo(profileId,todoId, todo).then(data => {
+        todoAPI.setEditTodo(profileId, todoId, todo).then(data => {
             dispatch(setTodos(data))
             dispatch(toggleFetching(false))
         })
     }
 }
+export const todosLogout = () => ({
+    type: LOGOUT
+})
 
 
 export default taskReducer;

@@ -56,5 +56,23 @@ export const profileAPI = {
             instance.post(`setNewProfileName/${profileId}`, {newName})
                 .then(res => {return res.data})
         )
+    },
+    setNewProfileLogin(profileId, newLogin){
+        return(
+            instance.post(`setNewProfileLogin/${profileId}`, {newLogin})
+                .then(res => {return res.data})
+        )
+    },
+    setNewProfilePhoto(profileId, newPhoto){
+        return(
+            instance.post(`setNewProfilePhoto/${profileId}`, {newPhoto})
+                .then(res => {return res.data})
+        )
+    },
+    setNewProfilePassword(profileId, oldPassword, newPassword){
+        return(
+            instance.post(`setNewProfilePassword/${profileId}`, {oldPassword, newPassword})
+                .then(res => {return res.data})
+        )
     }
 }
